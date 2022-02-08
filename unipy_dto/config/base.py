@@ -1,7 +1,9 @@
 from pydantic import BaseModel, BaseSettings, validator, Extra, ValidationError
 from pydantic.dataclasses import dataclass
-from .types import CPUField
-from .dto import CPUSpec
+from ..types import CPUField
+from ..dto import CPUSpec
+
+from .. import MutableDTOConfig, ImmutableDTOConfig
 
 import json
 from pathlib import Path
@@ -40,7 +42,7 @@ class JsonConfig(BaseSettings):
     clip_values_between_10_and_20: int
     cpu_spec: CPUSpec
 
-    class Config:
+    class Config(ImmutableDTOConfig):
         # Disable 'env_file' to avoid this errors:
         # 'Python-dotenv could not parse statement starting at line ...'
         # env_file = "config.json"
@@ -48,6 +50,7 @@ class JsonConfig(BaseSettings):
         case_sensitive = True
         extra = Extra.allow
         allow_mutation = False
+        validate_assignment = True
 
         @classmethod
         def customise_sources(
@@ -93,11 +96,12 @@ class EnvConfig(BaseSettings):
     OS_DIST: str
     cpu_spec: CPUSpec
 
-    class Config:
+    class Config(ImmutableDTOConfig):
         env_nested_delimiter = "__"
         case_sensitive = True
         extra = Extra.allow
         allow_mutation = True
+        validate_assignment = True
 
 
 @logged
@@ -115,11 +119,12 @@ class DotEnvConfig(BaseSettings):
     clip_values_between_10_and_20: int
     cpu_spec: CPUSpec
 
-    class Config:
+    class Config(ImmutableDTOConfig):
         env_file = "config.env"
         env_file_encoding = "utf-8"
         extra = Extra.allow
         allow_mutation = False
+        validate_assignment = True
         # env_prefix = "__"
         env_nested_delimiter = "__"
 

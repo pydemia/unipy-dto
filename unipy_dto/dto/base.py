@@ -2,6 +2,15 @@ from typing import Optional
 from pydantic import BaseModel, validator
 from autologging import logged
 from ..types.fields import CPUField
+from .._modelconfig import (
+    MutableDTO, ImmutableDTO,
+    MutableDTOConfig, ImmutableDTOConfig
+)
+
+
+__all__ = [
+    "CPUSpec",
+]
 
 
 @logged
@@ -10,7 +19,7 @@ class CPUSpec(BaseModel):
     cpu_max: float = CPUField
     desc: Optional[str]
 
-    @validator("cpu_max", always=True)
+    @validator("cpu_max", pre=True, always=True, allow_reuse=True)
     def validate_minmax(cls, v, values, **kwargs):
         if v < values["cpu_min"]:
             cls._CPUSpec__log.warn(

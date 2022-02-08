@@ -1,6 +1,6 @@
 
-# from ..accucfg.api import Settings
-from accucfg.config.base import JsonConfig, EnvConfig, DotEnvConfig
+# from ..unipy_dto.api import Settings
+from unipy_dto.config.base import JsonConfig, EnvConfig, DotEnvConfig
 from pydantic import Extra
 from autologging import logged
 from unittest import TestCase, mock, main

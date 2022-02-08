@@ -9,7 +9,8 @@
 		"editor.codeLensFontFamily": "Hack",
 		"debug.internalConsoleOptions": "openOnSessionStart",
 		"java.debug.settings.console": "internalConsole",
-		"debug.console.fontFamily": "Hack"
+		"debug.console.fontFamily": "Hack",
+		"extensions.ignoreRecommendations": true
 	},
 	"launch": {
 		"version": "0.2.0",
