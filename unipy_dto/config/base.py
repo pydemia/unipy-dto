@@ -3,7 +3,7 @@ from pydantic.dataclasses import dataclass
 from ..types import CPUField
 from ..dto import CPUSpec
 
-from .. import MutableDTOConfig, ImmutableDTOConfig
+from .._modelconfig import MutableDTOConfig, ImmutableDTOConfig
 
 import json
 from pathlib import Path
