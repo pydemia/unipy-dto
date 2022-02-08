@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export CONDA_ENV_NM_NEW="pydantic-config-py38"
+export CONDA_ENV_NM_NEW="unipy-dto-py38"
 export PY_VER="3.8"
 export BASE_ENVFILE="conda_envfile.yaml"
 export PIP_PKG_REQ="requirements.txt"
