@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.fontFamily": "Hack",
+		"editor.codeLensFontFamily": "Hack",
+		"debug.internalConsoleOptions": "openOnSessionStart",
+		"java.debug.settings.console": "internalConsole",
+		"debug.console.fontFamily": "Hack"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Current File",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "internalConsole",
+				// "cwd": "${workspaceFolder}/core",
+				"env": {
+					"PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
+				}
+			}
+		]
+	}
+}

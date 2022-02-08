@@ -1,0 +1,12 @@
+{
+    "config_format": "JSON",
+    "is_test": "True",
+    "string_field": "This is a string.",
+    "wrong_integer_field": -1,
+    "proper_integer_field": 5,
+    "clip_values_between_10_and_20": 22,
+    "cpu_spec": {
+        "cpu_min": 0.9,
+        "cpu_max": 0.5
+    }
+}
